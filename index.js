@@ -1,10 +1,11 @@
+require('dotenv').config()
 const run = async () => {
     const { GoogleGenerativeAI } = require("@google/generative-ai");
     const fs = require("fs");
     const { default: chalk } = await import("chalk");
 
     const MODEL_NAME = "gemini-1.0-pro";
-    const API_KEY = "YOUR_API_KEY"; // https://aistudio.google.com/app/
+    const API_KEY = process.env.GAI_API_KEY; // .env file
 
     const genAI = new GoogleGenerativeAI(API_KEY);
     const model = genAI.getGenerativeModel({ model: MODEL_NAME });
